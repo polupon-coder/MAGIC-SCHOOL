@@ -1,0 +1,10 @@
+# Render.com: New → Web Service con este repositorio (o New → Blueprint)
+services:
+  - type: web
+    name: magic-school
+    runtime: node
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz

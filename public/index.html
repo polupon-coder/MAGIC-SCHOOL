@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Escuela de Magia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="titleblock">
+      <div id="brand" class="brand">Escuela de Magia</div>
+      <div id="sub" class="sub"></div>
+    </div>
+    <div id="roundPill" class="round-pill hidden"></div>
+    <div id="prompt" class="prompt hidden"></div>
+    <div class="top-actions">
+      <button id="rulesTopBtn" class="btn green menu-btn round-btn" aria-label="Reglas" title="Reglas">R</button>
+      <button id="langBtn" class="btn green menu-btn round-btn lang-btn" aria-label="English" title="English">EN</button>
+      <button id="menuBtn" class="btn green menu-btn" aria-haspopup="true" aria-expanded="false" aria-label="Menú" title="Menú"><span class="burger"><i></i><i></i><i></i></span></button>
+      <div id="menu" class="menu hidden" role="menu">
+        <button id="rulesBtn" class="menu-item" role="menuitem">📖 Reglas</button>
+        <button id="logBtn" class="menu-item hidden" role="menuitem">📜 Crónica y chat</button>
+        <button id="homeBtn" class="menu-item hidden" role="menuitem" data-a="home">🏠 Pantalla principal</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="home hidden">
+    <div class="home-card book-home">
+      <div class="home-page left">
+        <div class="home-title">
+          <h1 id="homeH1">Escuela de Magia</h1>
+        </div>
+        <img id="homeSeal" class="home-seal hidden" alt="">
+      </div>
+      <div class="home-page right">
+        <div id="backRow"></div>
+        <input id="nameInput" class="input" maxlength="20" placeholder="Tu nombre" aria-label="Tu nombre">
+        <div class="home-actions">
+          <button id="createBtn" class="btn primary">Crear partida</button>
+          <div class="join-row">
+            <input id="codeInput" class="input code" maxlength="4" placeholder="CÓDIGO" aria-label="Código de sala">
+            <button id="joinBtn" class="btn">Entrar</button>
+          </div>
+        </div>
+        <p id="homeError" class="error"></p>
+      </div>
+    </div>
+  </main>
+
+  <main id="app" class="hidden">
+    <section id="lobby" class="hidden"></section>
+    <section id="table" class="table hidden">
+      <section id="mesa" class="panel mesa wood"></section>
+      <section id="claro" class="claro-area"></section>
+      <aside id="rivals" class="panel rivals wood"></aside>
+      <section id="catalog" class="panel catalog"></section>
+    </section>
+  </main>
+
+  <aside id="journal" class="journal hidden">
+    <div class="journal-head"><h3 id="journalTitle">Crónica</h3><button class="btn tiny" data-a="closeLog">✕</button></div>
+    <div id="log" class="log"></div>
+    <form id="chatForm" class="chat-row">
+      <input id="chatInput" class="input" maxlength="200" placeholder="Escribe al grupo…" autocomplete="off">
+      <button id="chatSend" class="btn small">Enviar</button>
+    </form>
+  </aside>
+
+  <div id="modal" class="modal hidden"></div>
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
